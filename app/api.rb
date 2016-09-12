@@ -14,8 +14,6 @@ get '/search' do
 
   access_token = OAuth::AccessToken.new( consumer, ENV[ 'TOKEN' ], ENV[ 'TOKEN_SECRET' ])
   
-  ap url_params
-
   response = access_token.get( "/v2/search?#{ url_params }" ).body
 
   parsed = JSON.parse( response, symbolize_names:true )

@@ -1,5 +1,5 @@
 describe 'API Spec' do
-  let( :params   ){{  category_filter:'sushi', location:'los angeles' }}
+  let( :params   ){{ category_filter:'sushi', location:'los angeles' }}
   let( :expected ){{ name:'KazuNori', image_url:'https://s3-media3.fl.yelpcdn.com/bphoto/9D63gCmIesyBQO15NNG9Xw/ms.jpg' }}
 
   specify 'Search' do
