@@ -9,11 +9,6 @@ before do
 end
 
 get '/search' do
-  consumer = OAuth::Consumer.new( ENV[ 'CONSUMER_KEY' ], ENV[ 'CONSUMER_SECRET' ], 
-              { site:URL, signature_method:'HMAC-SHA1', scheme: :header })
-
-  access_token = OAuth::AccessToken.new( consumer, ENV[ 'TOKEN' ], ENV[ 'TOKEN_SECRET' ])
-  
   response = access_token.get( "/v2/search?#{ url_params }" ).body
 
   parsed = JSON.parse( response, symbolize_names:true )
@@ -24,8 +19,17 @@ get '/search' do
   end.to_json
 end
 
+
+def access_token
+  consumer = OAuth::Consumer.new( ENV[ 'CONSUMER_KEY' ], ENV[ 'CONSUMER_SECRET' ], 
+              { site:URL, signature_method:'HMAC-SHA1', scheme: :header })
+
+  OAuth::AccessToken.new( consumer, ENV[ 'TOKEN' ], ENV[ 'TOKEN_SECRET' ])
+end
+
 def url_params
   Rack::Utils.build_query( location:params[ :location ],
                            category_filter:params[ :category_filter ],
                            limit:LIMIT )
 end
+
