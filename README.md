@@ -2,7 +2,8 @@
 
 This Sinatra app is an example of an AneedA skill. It connects to the Yelp API to search.
 
-How to set it up:
+**How to set up and deploy:**
+
 1. Go to https://www.yelp.com  
 Register for an account and activate via email.  
 2. Go to https://www.yelp.com/developers/api_console  
