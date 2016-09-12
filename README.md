@@ -12,15 +12,14 @@ Register for an account and activate via email.
 
 ![Create Key](https://github.com/iAmPlus/skills-template-sinatra/blob/master/images/create_key.png?raw=true)
 
-  <br>
-  
 Click **Create key** and fill out the form.  
-You can use http://example.com for the Website URL.   
 
+
+You can use http://example.com for the Website URL.   
 
 ![Create Key Form](https://github.com/iAmPlus/skills-template-sinatra/blob/master/images/create_key_form.png?raw=true)
 
-You will see your account secrets.  
+After you click submit you will see your account secrets.  
 
 Now, set up your Heroku instance:  
 
@@ -43,7 +42,9 @@ Next, clone and deploy the app:
 6. And add your SSH key to heroku  
 7. `git push production`  
 
-Test by visiting:
+Test by visiting your app. 
+1. Click **Open app** from the Heroku page  
+2. Update the URL in the browser:
  `https://<YOUR APP URL>/search?category_filter=sushi&location=los angeles`
 
 ![Response](https://github.com/iAmPlus/skills-template-sinatra/blob/master/images/success.png?raw=true)
