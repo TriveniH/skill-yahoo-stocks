@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'unicorn'
 gem 'newrelic_rpm'
 gem 'awesome_print'
+gem 'oauth'
 
 
 group :test do

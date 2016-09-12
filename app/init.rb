@@ -3,6 +3,7 @@ require 'sinatra'
 require 'json'
 require "awesome_print"
 require "newrelic_rpm"
+require "oauth"
 
 
 # Models

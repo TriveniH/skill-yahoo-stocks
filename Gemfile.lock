@@ -32,6 +32,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    oauth (0.5.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -79,6 +80,7 @@ DEPENDENCIES
   awesome_print
   guard-rspec
   newrelic_rpm
+  oauth
   rack-test
   rake
   rb-fsevent
