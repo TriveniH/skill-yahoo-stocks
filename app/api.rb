@@ -21,7 +21,7 @@ end
 
 
 def access_token
-  consumer = OAuth::Consumer.new( ENV[ 'CONSUMER_KEY' ], ENV[ 'CONSUMER_SECRET' ], 
+  consumer = OAuth::Consumer.new( ENV[ 'CONSUMER_KEY' ], ENV[ 'CONSUMER_SECRET' ],
               { site:URL, signature_method:'HMAC-SHA1', scheme: :header })
 
   OAuth::AccessToken.new( consumer, ENV[ 'TOKEN' ], ENV[ 'TOKEN_SECRET' ])
@@ -32,4 +32,3 @@ def url_params
                            category_filter:params[ :category_filter ],
                            limit:LIMIT )
 end
-
