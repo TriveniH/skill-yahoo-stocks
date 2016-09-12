@@ -2,7 +2,7 @@ set :raise_errors, true
 set :show_exceptions, false
 
 URL   = 'http://api.yelp.com'
-LIMIT = 1
+LIMIT = 5
 
 before do
   content_type 'application/json'
