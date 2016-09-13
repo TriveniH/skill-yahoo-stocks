@@ -1,14 +1,14 @@
 # Skill Example
 
-This Sinatra app is an example of an AneedA skill. It connects to the Yelp API to search.  
+This Sinatra app is an example of an AneedA skill. It connects to the Yelp search API.  
 
 <br>
-**How to set up and deploy:**
+**How to set up and deploy**
 
 First, set up your Yelp account:  
 
 1. Visit https://www.yelp.com  
-Register for an account and activate via email.  
+Register for an account and click on the activation email.  
 2. Visit https://www.yelp.com/developers/api_console  
 
 ![Create Key](https://github.com/iAmPlus/skills-template-sinatra/blob/master/images/create_key.png?raw=true)
@@ -25,15 +25,15 @@ After you click submit you will see your account secrets.
   <br>
 Now, set up your Heroku instance:  
 
-3. Sign up for an account on Heroku.com  
+3. Sign up for an account on heroku.com.  
 4. Click **New -> Create new app**   
 Click Settings.   
 Copy the Git URL.  
 4. Click **Reveal Config Vars**  
 Create 4 new config vars with the secrets from Yelp:  
-CONSUMER_KEY, 
-CONSUMER_SECRET, 
-TOKEN, 
+CONSUMER_KEY  
+CONSUMER_SECRET  
+TOKEN  
 TOKEN_SECRET
 
 <br>
@@ -44,7 +44,7 @@ Next, clone and deploy the app:
   Clone the app: `git clone git@github.com:iAmPlus/skills-template-sinatra.git`
 7. `cd skills-template-sinatra`
 6. `git add remote production <PASTE>`  
-6. Add your SSH key to heroku  
+6. Add your SSH key to Heroku.  See this page: https://devcenter.heroku.com/articles/keys
 7. `git push production`  
 
 <br>
