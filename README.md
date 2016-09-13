@@ -27,7 +27,8 @@ Now, set up your Heroku instance:
 
 3. Sign up for an account on heroku.com.  
 4. Click **New -> Create new app**   
-Click Settings.   
+Click the Create app button   
+Click Settings on the navbar.   
 Copy the Git URL.  
 4. Click **Reveal Config Vars**  
 Create 4 new config vars with the secrets from Yelp:  
@@ -43,7 +44,7 @@ Next, clone and deploy the app:
 6. Open a terminal.   
   Clone the app: `git clone git@github.com:iAmPlus/skills-template-sinatra.git`
 7. `cd skills-template-sinatra`
-6. `git add remote production <PASTE>`  
+6. `git remote add production <PASTE>`  
 6. Add your SSH key to Heroku.  See this page: https://devcenter.heroku.com/articles/keys
 7. `git push production`  
 
