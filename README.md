@@ -21,6 +21,7 @@ You can use http://example.com for the Website URL.
 
 After you click submit you will see your account secrets.  
 
+  <br>
 Now, set up your Heroku instance:  
 
 3. Sign up for an account on Heroku.com  
@@ -32,6 +33,7 @@ CONSUMER_SECRET,
 TOKEN, 
 TOKEN_SECRET
 
+<br>
 Next, clone and deploy the app:   
 
 5. Install Git.
@@ -42,7 +44,9 @@ Next, clone and deploy the app:
 6. And add your SSH key to heroku  
 7. `git push production`  
 
-Test by visiting your app. 
+<br>
+Test by visiting your app:
+
 1. Click **Open app** from the Heroku page  
 2. Update the URL in the browser:
  `https://<YOUR APP URL>/search?category_filter=sushi&location=los angeles`
