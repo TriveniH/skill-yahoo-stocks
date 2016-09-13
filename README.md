@@ -1,7 +1,8 @@
 # Skill Example
 
-This Sinatra app is an example of an AneedA skill. It connects to the Yelp API to search.
+This Sinatra app is an example of an AneedA skill. It connects to the Yelp API to search.  
 
+<br>
 **How to set up and deploy:**
 
 First, set up your Yelp account:  
