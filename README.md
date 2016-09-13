@@ -42,7 +42,7 @@ Next, clone and deploy the app:
   Clone the app: `git clone git@github.com:iAmPlus/skills-template-sinatra.git`
 7. `cd skills-template-sinatra`
 6. `git add remote production <PASTE>`  
-6. And add your SSH key to heroku  
+6. Add your SSH key to heroku  
 7. `git push production`  
 
 <br>
