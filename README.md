@@ -38,7 +38,8 @@ TOKEN_SECRET
 Next, clone and deploy the app:   
 
 5. Install Git.
-6. Open a terminal. Clone the app: `git clone git@github.com:iAmPlus/skills-template-sinatra.git`
+6. Open a terminal.   
+  Clone the app: `git clone git@github.com:iAmPlus/skills-template-sinatra.git`
 7. `cd skills-template-sinatra`
 6. git add remote production <PASTE>  
    You will need to have git installed.  
