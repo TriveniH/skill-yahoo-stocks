@@ -26,9 +26,11 @@ After you click submit you will see your account secrets.
 Now, set up your Heroku instance:  
 
 3. Sign up for an account on Heroku.com  
-4. Click **New -> Create new app** and click Settings. Copy the Git URL.  
+4. Click **New -> Create new app**   
+Click Settings.   
+Copy the Git URL.  
 4. Click **Reveal Config Vars**  
-Create 4 new config vars with the secrets from Yelp  
+Create 4 new config vars with the secrets from Yelp:  
 CONSUMER_KEY, 
 CONSUMER_SECRET, 
 TOKEN, 
