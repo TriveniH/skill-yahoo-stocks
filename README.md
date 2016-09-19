@@ -1,3 +1,32 @@
+# How to install Ruby
+
+  - On Linux/UNIX:  
+  ```$ sudo pacman -S ruby```
+  - On OS X machines:  
+  ```$ brew install ruby```
+  - On Windows machines, you can use RubyInstaller.   
+  http://rubyinstaller.org/
+
+  For more info, visit https://www.ruby-lang.org/en/documentation/installation/
+
+# How to install Git
+
+  - On Linux:  
+  ```$ sudo yum install git-all```
+  - On Mac:   
+  Run git from the Terminal. If you don’t have it installed already, it will prompt you for installation.
+  - On Windows:   
+  Go to http://git-scm.com/download/win and the download will start automatically.  
+
+  For more info, visit https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+# How to install Redis
+  - Download the stable version   
+  http://redis.io/download
+
+  For more info, visit http://redis.io/topics/quickstart
+
+<br>
 # Skill Example
 
 This Sinatra app is an example of an AneedA skill. It connects to the Yelp search API.  
@@ -56,3 +85,43 @@ Test by visiting your app:
  `https://<YOUR APP URL>/search?category_filter=sushi&location=los angeles`
 
 ![Response](https://github.com/iAmPlus/skills-template-sinatra/blob/master/images/success.png?raw=true)
+
+<br>
+
+# How to run locally   
+
+cd to the project directory   
+
+Setup a new Ruby project by running the following in the terminal:
+  - rbenv local 2.3.1  
+  - echo skills-template-sinatra > .rbenv-gemsets
+  - rbenv gemset active
+  - rbenv rehash
+  - gem install bundler
+  - bundle
+
+Creat a file for storing the secrets:  
+  - touch source-file.sh
+  - put the following in the file:
+  ```
+  #!/bin/sh  
+  export CONSUMER_KEY=<YOUR SECRET KEY HERE>  
+  export CONSUMER_SECRET=<YOUR SECRET KEY HERE>  
+  export TOKEN=<YOUR SECRET KEY HERE>  
+  export TOKEN_SECRET=<YOUR SECRET KEY HERE>
+  ```
+
+Create .gitignore so that secret keys will not be pushed to Github:  
+  - touch .gitignore
+  - put the following in the .gitignore file:
+  ```
+  /log
+  source-file.sh
+  ```
+
+To start the app:
+  - in the terminal:
+    - source source-file.sh
+    - rackup
+  - open Chrome
+    - Update the URL in the browser: http://localhost:9292/search?category_filter=sushi&location=los%20angeles
