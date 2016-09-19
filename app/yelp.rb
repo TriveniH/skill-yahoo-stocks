@@ -1,14 +1,18 @@
 class Yelp
   extend Cacheable
+  
 
   class << self
     def search_for params
+      cache = get_cache( cache_key_for( params ))
+
+      if cache
+        return JSON.parse( cache, symbolize_names:true )
+      end
+
       response = access_token.get( "/v2/search?#{ url_params_from( params )}" ).body
 
-      unless params[ :do_not_cache ]
-        key = "search-#{ params.sort.to_h.values.join '-' }-#{ LIMIT }"
-        set_cache key, response
-      end
+      set_cache cache_key_for( params ), response
 
       parsed = JSON.parse( response, symbolize_names:true )
     end
@@ -27,6 +31,12 @@ class Yelp
       Rack::Utils.build_query( location:params[ :location ],
                                category_filter:params[ :category_filter ],
                                limit:LIMIT )
+    end
+
+    def cache_key_for params
+      return if params[ :not_cached ]
+
+      "search-#{ params.sort.to_h.values.join '-' }-#{ LIMIT }"
     end
   end
 end

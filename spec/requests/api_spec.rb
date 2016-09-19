@@ -22,4 +22,20 @@ describe 'API Spec' do
 
     expect( Redis.new.ttl( cache_key )).to eq Cacheable::EXPIRY
   end
+
+  specify 'Gets from cache' do
+    get '/search', params
+    get '/search', params
+
+    expect( WebMock ).to have_requested( :get, %r{http://api.yelp.com/v2/search}).once
+  end
+
+  context 'When not_cached is true do not get from cache' do
+    specify do
+      get '/search', params.merge( not_cached:true )
+      get '/search', params.merge( not_cached:true )
+
+      expect( WebMock ).to have_requested( :get, %r{http://api.yelp.com/v2/search}).twice
+    end
+  end
 end

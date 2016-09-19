@@ -9,7 +9,7 @@ module Cacheable
   end
 
   def get_cache key
-    connection.get key
+    connection.get( key ) if present?( key )
   end
 
 
@@ -21,5 +21,9 @@ module Cacheable
 
   def blank? str
     str.to_s.strip == ''
+  end
+
+  def present? str
+    ! blank?( str )
   end
 end

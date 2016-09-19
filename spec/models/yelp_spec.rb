@@ -7,12 +7,4 @@ describe Yelp do
 
     expect( Redis.new.get( cache_key )).to eq yelp_response
   end
-
-  context 'When do_not_cache key is set' do
-    specify do
-      Yelp.search_for params.merge( do_not_cache:true )
-
-      expect( Redis.new.get( cache_key )).to eq nil
-    end
-  end
 end
