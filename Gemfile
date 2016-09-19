@@ -7,6 +7,7 @@ gem 'unicorn'
 gem 'newrelic_rpm'
 gem 'awesome_print'
 gem 'oauth'
+gem 'redis'
 
 
 group :test do

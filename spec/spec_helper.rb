@@ -4,7 +4,7 @@ require 'rack/test'
 require 'webmock/rspec'
 
 
-ENV[ 'RACK_ENV'   ] = 'test'
+ENV[ 'RACK_ENV' ] = 'test'
 
  # App
 require './app/init'
@@ -28,6 +28,13 @@ RSpec.configure do |config|
     /spec\/spec_helper\.rb/,
     /lib\/rspec\/(core|expectations|matchers|mocks)/
   ]
+
+  config.before( :each ) do
+    WebMock.stub_request(:get, %r{^http://api.yelp.com/v2/search})
+      .to_return( status:200, body:yelp_response, headers:{} )
+
+    Redis.new.flushdb
+  end
 end
 
 def app

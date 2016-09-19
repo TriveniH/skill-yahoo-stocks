@@ -51,6 +51,7 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redis (3.3.1)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -93,6 +94,7 @@ DEPENDENCIES
   rack-test
   rake
   rb-fsevent
+  redis
   rspec
   sinatra
   unicorn

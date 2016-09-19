@@ -5,3 +5,7 @@ end
 def warning_header
   last_response.headers[ 'Warning' ]
 end
+
+def yelp_response
+  File.read 'spec/shared/yelp_response.json'
+end

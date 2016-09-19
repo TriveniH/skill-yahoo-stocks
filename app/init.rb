@@ -1,17 +1,16 @@
 # Gems
 require 'sinatra'
 require 'json'
-require "awesome_print"
-require "newrelic_rpm"
-require "oauth"
-
-
-# Models
-# require "./models/project"
+require 'awesome_print'
+require 'newrelic_rpm'
+require 'oauth'
+require 'redis'
 
 
 # App
 require './app/api'
+require './app/cacheable'
+require './app/yelp'
 
 $stdout.sync = true
 
