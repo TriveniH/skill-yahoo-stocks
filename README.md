@@ -1,8 +1,9 @@
 # How to install Ruby
 
   - On Linux/UNIX:  
-  ```$ sudo pacman -S ruby```
+  ```$ sudo apt-get install ruby-full```
   - On OS X machines:  
+  Install Homebrew. Visit http://brew.sh/   
   ```$ brew install ruby```
   - On Windows machines, you can use RubyInstaller.   
   http://rubyinstaller.org/
@@ -11,12 +12,7 @@
 
 # How to install Git
 
-  - On Linux:  
-  ```$ sudo yum install git-all```
-  - On Mac:   
-  Run git from the Terminal. If you don’t have it installed already, it will prompt you for installation.
-  - On Windows:   
-  Go to http://git-scm.com/download/win and the download will start automatically.  
+  - Visit https://git-scm.com/downloads
 
   For more info, visit https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
@@ -69,11 +65,10 @@ TOKEN_SECRET
 <br>
 Next, clone and deploy the app:   
 
-5. Install Git.
 6. Open a terminal.   
   Clone the app: `git clone git@github.com:iAmPlus/skills-template-sinatra.git`
 7. `cd skills-template-sinatra`
-6. `git remote add production <PASTE>`  
+6. `git remote add production <PASTE Git URL>`  
 6. Add your SSH key to Heroku.  See this page: https://devcenter.heroku.com/articles/keys
 7. `git push production`  
 
@@ -90,38 +85,38 @@ Test by visiting your app:
 
 # How to run locally   
 
+**Run Redis**   
+Open a new terminal tab  
+```$ redis-server```  
+
+**To Run the app**  
+Open a second terminal tab   
+
 cd to the project directory   
 
 Setup a new Ruby project by running the following in the terminal:
-  - rbenv local 2.3.1  
-  - echo skills-template-sinatra > .rbenv-gemsets
-  - rbenv gemset active
-  - rbenv rehash
-  - gem install bundler
-  - bundle
+  1. gem install bundler
+  2. bundle
 
 Creat a file for storing the secrets:  
-  - touch source-file.sh
+  - touch run.sh
   - put the following in the file:
   ```
   #!/bin/sh  
-  export CONSUMER_KEY=<YOUR SECRET KEY HERE>  
-  export CONSUMER_SECRET=<YOUR SECRET KEY HERE>  
-  export TOKEN=<YOUR SECRET KEY HERE>  
-  export TOKEN_SECRET=<YOUR SECRET KEY HERE>
-  ```
 
-Create .gitignore so that secret keys will not be pushed to Github:  
-  - touch .gitignore
-  - put the following in the .gitignore file:
-  ```
-  /log
-  source-file.sh
+  export CONSUMER_KEY=<YOUR SECRET KEY HERE>  
+
+  export CONSUMER_SECRET=<YOUR SECRET KEY HERE>  
+
+  export TOKEN=<YOUR SECRET KEY HERE>  
+
+  export TOKEN_SECRET=<YOUR SECRET KEY HERE>  
+
+  rackup
   ```
 
 To start the app:
   - in the terminal:
-    - source source-file.sh
-    - rackup
+    - source run.sh
   - open Chrome
     - Update the URL in the browser: http://localhost:9292/search?category_filter=sushi&location=los%20angeles
