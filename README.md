@@ -98,7 +98,7 @@ Setup a new Ruby project by running the following in the terminal:
   1. gem install bundler
   2. bundle
 
-Creat a file for storing the secrets:  
+Create a file for storing the secrets:  
   - touch run.sh
   - put the following in the file:
   ```
