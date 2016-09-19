@@ -11,6 +11,7 @@ require 'redis'
 require './app/api'
 require './app/cacheable'
 require './app/yelp'
+require './app/api_request'
 
 $stdout.sync = true
 

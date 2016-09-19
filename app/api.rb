@@ -1,7 +1,6 @@
 set :raise_errors, true
 set :show_exceptions, false
 
-URL   = 'http://api.yelp.com'
 LIMIT = 5
 
 before do
