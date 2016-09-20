@@ -5,6 +5,7 @@ require 'webmock/rspec'
 
 
 ENV[ 'RACK_ENV' ] = 'test'
+ENV[ 'OAUTH2_ACCESS_TOKEN' ] = 'OAUTH2_ACCESS_TOKEN'
 
  # App
 require './app/init'
@@ -30,7 +31,9 @@ RSpec.configure do |config|
   ]
 
   config.before( :each ) do
-    WebMock.stub_request(:get, %r{^http://api.yelp.com/v2/search})
+    yelp_url = 'http://api.yelp.com/v2/search?category_filter=sushi&limit=5&location=los%20angeles'
+
+    WebMock.stub_request(:get, yelp_url )
       .to_return( status:200, body:yelp_response, headers:{} )
 
     Redis.new.flushdb

@@ -6,21 +6,36 @@ class APIRequest
     @params = params
   end
 
-  def for method, path
+  def for method, path, params
     case @auth_type
-    when :oauth_1
-      oauth_1_request method, path
+    when :oauth1
+      oauth1_request method, path, params
+    
+    when :oauth2
+      oauth2_request method, path, params
+
+    else
+      raise 'Invalid APIRequest auth type'
     end
   end
 
 
   private
 
-  def oauth_1_request method, path
-    oauth_1_access_token.request method, path
+  def oauth2_request method, path, params
+    uri = "#{ @domain }#{ path }"
+    auth = { 'Authorization' => "Bearer #{ ENV[ 'OAUTH2_ACCESS_TOKEN' ]}"}
+
+    HTTParty.send method, uri, headers:auth, body:params.to_json
   end
 
-  def oauth_1_access_token
+  def oauth1_request method, path, params
+    url_params = Rack::Utils.build_query( params )
+
+    oauth1_access_token.request method, "#{ path }?#{ url_params }"
+  end
+
+  def oauth1_access_token
     consumer = OAuth::Consumer.new( ENV[ 'CONSUMER_KEY' ], ENV[ 'CONSUMER_SECRET' ],
                 { site:@domain, signature_method:'HMAC-SHA1', scheme: :header })
 

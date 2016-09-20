@@ -11,22 +11,22 @@ class Yelp
         return JSON.parse( cache, symbolize_names:true )
       end
 
-      request = APIRequest.new( :oauth_1, DOMAIN )
-      response = request.for( :get, "/v2/search?#{ url_params_from( params )}" )
+      request = APIRequest.new( :oauth1, DOMAIN )
+      response = request.for( :get, '/v2/search', request_params_for( params ))
 
       body = response.body
       set_cache cache_key_for( params ), body
 
-      parsed = JSON.parse( body, symbolize_names:true )
+      JSON.parse( body, symbolize_names:true )
     end
 
 
     private
 
-    def url_params_from params
-      Rack::Utils.build_query( location:params[ :location ],
-                               category_filter:params[ :category_filter ],
-                               limit:LIMIT )
+    def request_params_for params
+      { location:params[ :location ],
+        category_filter:params[ :category_filter ],
+        limit:LIMIT }
     end
 
     def cache_key_for params
