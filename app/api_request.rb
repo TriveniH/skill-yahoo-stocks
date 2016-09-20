@@ -1,9 +1,8 @@
 class APIRequest
-  def initialize auth_type, domain, headers={}, params={}
+  def initialize auth_type, domain, headers={}
     @auth_type = auth_type
     @domain = domain
     @headers = headers
-    @params = params
   end
 
   def for method, path, params
@@ -14,6 +13,9 @@ class APIRequest
     when :oauth2
       oauth2_request method, path, params
 
+    when :generic
+      generic_request method, path, params
+
     else
       raise 'Invalid APIRequest auth type'
     end
@@ -21,6 +23,11 @@ class APIRequest
 
 
   private
+
+  def generic_request method, path, params
+    uri = "#{ @domain }#{ path }"
+    HTTParty.send method, uri, headers:@headers, body:params
+  end
 
   def oauth2_request method, path, params
     uri = "#{ @domain }#{ path }"
