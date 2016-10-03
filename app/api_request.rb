@@ -6,6 +6,7 @@ class APIRequest
   end
 
   def for method, path, params
+    puts "APIRequest: "+ params.to_s
     case @auth_type
     when :oauth1
       oauth1_request method, path, params
@@ -26,6 +27,8 @@ class APIRequest
 
   def generic_request method, path, params
     uri = "#{ @domain }#{ path }"
+    puts "uri:  "+ uri.to_s
+    puts "params: "+ params.to_s
     HTTParty.send method, uri, headers:@headers, body:params
   end
 

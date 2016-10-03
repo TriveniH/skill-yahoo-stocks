@@ -12,7 +12,6 @@ module Cacheable
     connection.get( key ) if present?( key )
   end
 
-
   private
 
   def connection
